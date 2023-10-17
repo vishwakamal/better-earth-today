@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/better-earth-today/static/css/main.a7777922.css",
-    "main.js": "/better-earth-today/static/js/main.bdf98094.js",
+    "main.js": "/better-earth-today/static/js/main.46f09032.js",
     "static/media/images1.jpeg": "/better-earth-today/static/media/images1.e4fa41547da7a30ac6d9.jpeg",
     "index.html": "/better-earth-today/index.html",
     "main.a7777922.css.map": "/better-earth-today/static/css/main.a7777922.css.map",
-    "main.bdf98094.js.map": "/better-earth-today/static/js/main.bdf98094.js.map"
+    "main.46f09032.js.map": "/better-earth-today/static/js/main.46f09032.js.map"
   },
   "entrypoints": [
     "static/css/main.a7777922.css",
-    "static/js/main.bdf98094.js"
+    "static/js/main.46f09032.js"
   ]
 }
