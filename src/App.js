@@ -6,7 +6,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import HomePage from './Pages/HomePage';
 import AboutPage from './Pages/AboutPage';
-import TakeActionPage from './Pages/TakeActionPage';
+import CurrentNewsPage from './Pages/CurrentNewsPage';
 import image1 from './Images/images1.jpeg';
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutPage />} />  
-            <Route path="/take-action" element={<TakeActionPage />} />
+            <Route path="/current-news" element={<CurrentNewsPage />} />
           </Routes>
         </div>
         

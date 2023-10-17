@@ -4,6 +4,8 @@ import React from 'react';
 function AboutPage() {
     return (
         <div className="content">
+            <div className="content-box">
+
           <h1 className="title">About Us</h1>
     
           <section className="story">
@@ -32,6 +34,7 @@ function AboutPage() {
           </section>
     
           {/* Other sections like Values, Mission, Why Choose Us, etc. */}
+          </div>
         </div>
       );
 }
