@@ -1,38 +1,115 @@
-.App {
+/* app.css */
+
+body {
+  background-color: #f2f2f2;
+  font-family: 'Open Sans', sans-serif;
+  color: #333;
+}
+
+.header {
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  background: #444;
+}
+
+.nav-button {
+  padding: 15px 10px;
+  margin: 0 475px;
+  font-size: 18px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+} 
+
+.nav-button span {
+  display: inline-block;  
+  padding: 10px;
+}
+
+.nav-button-link {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.nav-button-link-home {
+  background-color: #007bff; /* You can customize the colors */
+}
+
+.nav-button-link-about {
+  background-color: #ff5733; /* You can customize the colors */
+}
+
+.nav-button-link-take-action {
+  background-color: #33ff57; /* You can customize the colors */
+}
+
+.nav-button:focus {
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.content {
+  width: 100%;
+  float: left;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;  
+}
+
+.content-box {
+  background: #fff;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  margin-bottom: 20px; 
+}
+
+.images {
+  width: 50%;
+  float: right; 
+  padding: 20px; 
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  margin-top: 40px;
+}
+
+
+@media (max-width: 600px) {
+  .content, 
+  .images {
+    width: 100%;
+    float: none;
+    padding: 20px; 
+    border-radius: 20px; 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); 
+  }
+} 
+
+h1, h2 {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+p {
+  line-height: 1.6; 
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.btn {
+  display: block;
+  width: 150px;
+  margin: 20px auto;
+  background: #F2CC8F;  
+  color: #fff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer; 
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btn:hover {
+  background-color: #005fa3;
 }
