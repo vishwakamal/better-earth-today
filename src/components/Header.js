@@ -1,21 +1,19 @@
-// Header.js
-
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 function Header() {
   return (
-    <div className="header">
-      <h1>Environmental Awareness</h1>
-
-      <div className="nav-button">
-        <nav>
-          <Link to="/" className="nav-button-link nav-button-link-home">Home</Link>
-          <Link to="/about" className="nav-button-link nav-button-link-about">About</Link>
-          <Link to="/current-news" className="nav-button-link nav-button-link-take-action">Current News</Link>
+    <header className="header">
+      <div className="header-inner">
+        <NavLink to="/" className="header-brand">BetterEarthToday</NavLink>
+        <nav className="nav">
+          <NavLink to="/" end className={({ isActive }) => `nav-link${isActive ? ' nav-link-active' : ''}`}>Home</NavLink>
+          <NavLink to="/dashboard" className={({ isActive }) => `nav-link${isActive ? ' nav-link-active' : ''}`}>Dashboard</NavLink>
+          <NavLink to="/events" className={({ isActive }) => `nav-link${isActive ? ' nav-link-active' : ''}`}>Events</NavLink>
+          <NavLink to="/about" className={({ isActive }) => `nav-link${isActive ? ' nav-link-active' : ''}`}>About</NavLink>
         </nav>
       </div>
-    </div>
+    </header>
   );
 }
 
