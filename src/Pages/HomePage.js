@@ -59,7 +59,7 @@ function HomePage() {
       </section>
 
       <section className="stats-grid">
-        <StatCard title="Current Weather — Carmel, IN" loading={weather.loading} error={weather.error}>
+        <StatCard title="Current Weather — Loading" loading={weather.loading} error={weather.error}>
           {weather.data && (
             <>
               <p className="stat-value">{Math.round(weather.data.current.temperature_2m)}°F</p>
