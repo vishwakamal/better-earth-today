@@ -1,44 +1,30 @@
-// App.js
-
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import HomePage from './Pages/HomePage';
+import DashboardPage from './Pages/DashboardPage';
+import EventsPage from './Pages/EventsPage';
 import AboutPage from './Pages/AboutPage';
-import CurrentNewsPage from './Pages/CurrentNewsPage';
-import image1 from './Images/images1.jpeg';
 
 function App() {
-
   return (
     <Router>
-      <div className="container">
-      
-        <Header/>
-        
-        
-        <div className="content">
+      <div className="app">
+        <Header />
+        <main className="main">
           <Routes>
-            <Route path="/home" element={<HomePage />} />
-            <Route path="/about" element={<AboutPage />} />  
-            <Route path="/current-news" element={<CurrentNewsPage />} />
+            <Route path="/" element={<HomePage />} />
+            <Route path="/dashboard" element={<DashboardPage />} />
+            <Route path="/events" element={<EventsPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
-        </div>
-        
-        <div className="images">
-          <img src={image1}/>
-        {/* Add more images as needed */}
-        </div>
-         
-        <Footer/>
+        </main>
+        <Footer />
       </div>
     </Router>
   );
-
 }
-
-
-
 
 export default App;
