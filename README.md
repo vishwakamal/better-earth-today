@@ -1,70 +1,84 @@
-# Getting Started with Create React App
+# Better Earth Today
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Better Earth Today is a React + Vite web app focused on environmental awareness.  
+It combines three user-facing tools:
+
+- **CO₂ Footprint Tracker** – estimates yearly personal emissions from transport, home energy, and diet inputs.
+- **Environmental News** – fetches live BBC Science & Environment RSS stories with search and refresh support.
+- **Climate Dashboard** – shows live weather, air quality, and recent earthquake data from public APIs.
+
+## Tech Stack
+
+- React 19
+- React Router
+- Vite 5
+- Tailwind CSS
+
+## Key Features
+
+- Modern landing page with parallax hero and CTA flow
+- Lifestyle-based carbon footprint calculation with category breakdown and suggestions
+- Live climate news feed parsing RSS XML in-browser
+- Real-time dashboard for:
+  - Weather
+  - Air quality (AQI, PM2.5, PM10, gases)
+  - M4.5+ earthquake activity
+- Shared `useFetch` hook for API loading/error/refetch behavior
+
+## Project Structure
+
+```text
+src/
+  components/
+    Header.jsx
+    Footer.jsx
+  hooks/
+    useFetch.js
+  Pages/
+    LandingPage.jsx
+    TrackerPage.jsx
+    NewsPage.jsx
+    DashboardPage.jsx
+  App.jsx
+  main.jsx
+  index.css
+```
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 18+
+- npm
+
+### Install
+
+```bash
+npm ci
+```
+
+### Run locally
+
+```bash
+npm run dev
+```
+
+Then open the local URL shown by Vite (typically `http://localhost:5173`).
 
 ## Available Scripts
 
-In the project directory, you can run:
+- `npm run dev` – start the Vite development server
+- `npm run build` – create a production build in `dist/`
+- `npm run preview` – preview the production build locally
 
-### `npm start`
+## Data Sources
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- [Open-Meteo](https://open-meteo.com/) (weather + air quality)
+- [USGS Earthquake Hazards Program](https://earthquake.usgs.gov/) (earthquake feed)
+- [BBC Science & Environment RSS](https://feeds.bbci.co.uk/news/science_and_environment/rss.xml) (news)
+- [allorigins.win](https://allorigins.win/) (RSS proxy for browser CORS access)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Notes
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- The active app entrypoint is `src/main.jsx` with routes in `src/App.jsx`.
+- Some legacy CRA-era files (`src/index.js`, `src/App.js`, etc.) are present in the repository but not used by the Vite entrypoint.
