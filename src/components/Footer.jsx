@@ -12,7 +12,7 @@ export default function Footer() {
               </svg>
               BetterEarthToday
             </div>
-            <p className="text-green-300/80 text-sm leading-relaxed">
+            <p className="text-green-300/70 text-sm leading-relaxed">
               Environmental awareness tools powered by real-time public data.
               Know your impact. Take action.
             </p>
@@ -27,7 +27,7 @@ export default function Footer() {
                 { to: '/dashboard', label: 'Climate Dashboard' },
               ].map(({ to, label }) => (
                 <li key={to}>
-                  <Link to={to} className="text-green-200/70 hover:text-white text-sm transition-colors">
+                  <Link to={to} className="text-green-200/60 hover:text-white text-sm transition-colors">
                     {label}
                   </Link>
                 </li>
@@ -45,7 +45,7 @@ export default function Footer() {
                 { href: 'https://unsplash.com/', label: 'Unsplash Photos' },
               ].map(({ href, label }) => (
                 <li key={href}>
-                  <a href={href} target="_blank" rel="noopener noreferrer" className="text-green-200/70 hover:text-white text-sm transition-colors">
+                  <a href={href} target="_blank" rel="noopener noreferrer" className="text-green-200/60 hover:text-white text-sm transition-colors">
                     {label} ↗
                   </a>
                 </li>
@@ -54,9 +54,9 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-green-900 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-green-400/60">
+        <div className="border-t border-green-900 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-green-400/50">
           <p>© {new Date().getFullYear()} BetterEarthToday — Free &amp; Open Source</p>
-          <p>Built with React 19 + Vite + Tailwind CSS</p>
+          <p>React 19 + Vite + Tailwind CSS</p>
         </div>
       </div>
     </footer>

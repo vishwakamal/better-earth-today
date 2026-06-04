@@ -1,10 +1,10 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import LandingPage from './Pages/HomePage';
-import TrackerPage from './Pages/TrackerPage';
-import NewsPage from './Pages/CurrentNewsPage';
-import DashboardPage from './Pages/DashboardPage';
+import Header from './components/Header.jsx';
+import Footer from './components/Footer.jsx';
+import LandingPage from './Pages/LandingPage.jsx';
+import TrackerPage from './Pages/TrackerPage.jsx';
+import NewsPage from './Pages/NewsPage.jsx';
+import DashboardPage from './Pages/DashboardPage.jsx';
 
 function App() {
   return (
