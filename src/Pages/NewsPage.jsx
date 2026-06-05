@@ -7,23 +7,36 @@ const NEWS_URL = `https://api.allorigins.win/get?url=${encodeURIComponent(BBC_RS
 
 const NS_MEDIA = 'http://search.yahoo.com/mrss/';
 
+// BBC CDN URLs include the width: /news/240/cpsprodpb/...
+// Bump it to 1024 to get a high-res version without any API key
+function upgradeBBCUrl(url) {
+  if (!url) return url;
+  return url.replace(/\/news\/\d+\//, '/news/1024/');
+}
+
 function parseRSS(data) {
   if (!data?.contents) return [];
   try {
     const doc = new DOMParser().parseFromString(data.contents, 'text/xml');
     return [...doc.querySelectorAll('item')].slice(0, 18).map((el) => {
       const text = (sel) => el.querySelector(sel)?.textContent?.trim() || '';
-      const thumb =
-        el.getElementsByTagNameNS(NS_MEDIA, 'thumbnail')[0]?.getAttribute('url') ||
-        el.querySelector('enclosure[type^="image"]')?.getAttribute('url') ||
-        '';
+
+      // BBC provides several <media:thumbnail> elements with different widths.
+      // Sort descending by width attribute to pick the largest one.
+      const thumbEls = [...el.getElementsByTagNameNS(NS_MEDIA, 'thumbnail')];
+      const bestThumb = thumbEls.length > 0
+        ? thumbEls.sort((a, b) =>
+            (Number(b.getAttribute('width')) || 0) - (Number(a.getAttribute('width')) || 0)
+          )[0].getAttribute('url')
+        : el.querySelector('enclosure[type^="image"]')?.getAttribute('url') || '';
+
       return {
-        title: text('title'),
-        link: text('link') || text('guid'),
+        title:       text('title'),
+        link:        text('link') || text('guid'),
         description: text('description'),
-        pubDate: text('pubDate'),
-        thumbnail: thumb,
-        content: text('encoded') || '',
+        pubDate:     text('pubDate'),
+        thumbnail:   upgradeBBCUrl(bestThumb),
+        content:     text('encoded') || '',
       };
     });
   } catch {
@@ -52,7 +65,7 @@ const formatDate = (dateStr) => {
 const getImage = (item, index) => {
   if (item.thumbnail?.startsWith('http')) return item.thumbnail;
   const match = item.content?.match(/<img[^>]+src="([^"]+)"/);
-  return match ? match[1] : FALLBACK_IMAGES[index % FALLBACK_IMAGES.length];
+  return match ? upgradeBBCUrl(match[1]) : FALLBACK_IMAGES[index % FALLBACK_IMAGES.length];
 };
 
 function SkeletonCard() {

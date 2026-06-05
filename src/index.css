@@ -11,6 +11,18 @@
   }
 }
 
+/* Force crosshair on Leaflet map so users know they can click */
+.leaflet-container {
+  cursor: crosshair !important;
+}
+.leaflet-grab,
+.leaflet-dragging .leaflet-grab {
+  cursor: grab !important;
+}
+.leaflet-dragging .leaflet-container {
+  cursor: grabbing !important;
+}
+
 @layer components {
   .page-wrapper {
     @apply pt-16 min-h-screen;
